@@ -28,10 +28,10 @@ namespace OnlineStore.Controllers
             return View();
         }
 
-        public IActionResult Electronics()
-        {
-            return View();
-        }
+        //public IActionResult Electronics()
+        //{
+        //    return View();
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

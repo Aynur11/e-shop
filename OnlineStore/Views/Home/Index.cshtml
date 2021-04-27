@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using OnlineStore.Controllers
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -12,51 +13,19 @@
     <div class="modules-container">
         <div class="modules-content">
             <h1 class="modules-h1">Интернет магазин</h1>
-
             <ul class="card-list">
-                <li class="child card-image-01">
-                    <div class="number">01</div>
-                    <h2 class="card-head-text">
-                        <a asp-action="Electronics">Электроника</a>
-                    </h2>
-                    <p class="card-text">
-                        Телефоны, смартфоны
-                        <br>Ноутбуки
-                        <br>Камеры
-                        <br>И другие гаджеты
-                    </p>
-                </li>
-                <li class="right child card-image-02">
-                    <div class="number">02</div>
-                    <h2 class="card-head-text">Товары для чистоты</h2>
-                    <p class="card-text">
-                        Стиральные порошки
-                        <br>Гели, концентраты
-                        <br>Кондиционеры для белья
-                        <br>Капсулы для стирки
-                        <br>Капсулы для посудомоечных машин
-                    </p>
-                </li>
-                <li class="child card-image-03">
-                    <div class="number">03</div>
-                    <h2 class="card-head-text">Косметика</h2>
-                    <p class="card-text">
-                        Шампуни
-                        <br>Гели для душа
-                        <br>Крема для рук, лица и тела
-                        <br>Масла для тела
-                        <br>Маски для лица
-                    </p>
-                </li>
-                <li class="right child card-image-04">
-                    <div class="number">04</div>
-                    <h2 class="card-head-text">Обувь</h2>
-                    <p class="card-text">
-                        Кросовки
-                        <br>Кеды
-                        <br>Туфли
-                    </p>
-                </li>
+                @for (int i = 1; i < @ShopHelper.GetSections().Count + 1; i++)
+                {
+                    <li class="@(i % 2 == 0 ? "right" : "") child card-image-0@(i)">
+                        <div class="number">0@(i)</div>
+                        <h2 class="card-head-text">
+                            <a asp-action=@ShopHelper.GetSections()[i - 1].View asp-controller="Sections">@ShopHelper.GetSections()[i - 1].Name</a>
+                        </h2>
+                        <p class="card-text">
+                            @ShopHelper.GetSections()[i - 1].Description
+                        </p>
+                    </li>
+                }
             </ul>
 
             <button class="button-show-more"><span class="button-show-more-text"> Показать еще</span></button>
