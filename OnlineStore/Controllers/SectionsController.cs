@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using OnlineStore.Models;
 
 namespace OnlineStore.Controllers
 {
@@ -11,9 +12,16 @@ namespace OnlineStore.Controllers
     {
         private readonly ILogger<SectionsController> _logger;
 
+        public List<Section> Sections { get; set; }
+
         public SectionsController(ILogger<SectionsController> logger)
         {
             _logger = logger;
+            Sections = new List<Section>();
+            Sections.Add(new Section(0, "Электроника"));
+            Sections.Add(new Section(2, "Товары для чистоты"));
+            Sections.Add(new Section(3, "Косметика"));
+            Sections.Add(new Section(4, "Обувь"));
         }
 
         public IActionResult Electronics()
