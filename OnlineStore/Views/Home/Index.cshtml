@@ -19,7 +19,7 @@
                     <li class="@(i % 2 == 0 ? "right" : "") child card-image-0@(i)">
                         <div class="number">0@(i)</div>
                         <h2 class="card-head-text">
-                            <a asp-action=@ShopHelper.GetSections()[i - 1].View asp-controller="Sections">@ShopHelper.GetSections()[i - 1].Name</a>
+                            <a asp-action=GetView asp-route-id=@(i - 1) asp-controller="Sections"> @ShopHelper.GetSections()[i - 1].Name</a>
                         </h2>
                         <p class="card-text">
                             @ShopHelper.GetSections()[i - 1].Description

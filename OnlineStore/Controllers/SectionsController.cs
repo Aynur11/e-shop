@@ -18,30 +18,35 @@ namespace OnlineStore.Controllers
         {
             _logger = logger;
             Sections = new List<Section>();
-            Sections.Add(new Section(0, "Электроника"));
-            Sections.Add(new Section(2, "Товары для чистоты"));
-            Sections.Add(new Section(3, "Косметика"));
-            Sections.Add(new Section(4, "Обувь"));
+            Sections.Add(new Section(0, "Electronics"));
+            Sections.Add(new Section(2, "HouseholdChemicals"));
+            Sections.Add(new Section(3, "Cosmetics"));
+            Sections.Add(new Section(4, "Shoes"));
         }
 
-        public IActionResult Electronics()
+        public IActionResult GetView(int id)
         {
-            return View();
+            return View(Sections[id].Name);
         }
 
-        public IActionResult HouseholdChemicals()
-        {
-            return View();
-        }
+        //public IActionResult Electronics()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult Cosmetics()
-        {
-            return View();
-        }
+        //public IActionResult HouseholdChemicals()
+        //{
+        //    return View();
+        //}
 
-        public IActionResult Shoes()
-        {
-            return View();
-        }
+        //public IActionResult Cosmetics()
+        //{
+        //    return View();
+        //}
+
+        //public IActionResult Shoes()
+        //{
+        //    return View();
+        //}
     }
 }
