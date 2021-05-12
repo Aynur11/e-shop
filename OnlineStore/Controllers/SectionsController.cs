@@ -11,22 +11,18 @@ namespace OnlineStore.Controllers
     public class SectionsController : Controller
     {
         private readonly ILogger<SectionsController> _logger;
-
-        public List<Section> Sections { get; set; }
+        public Home HomeModel { get; set; }
 
         public SectionsController(ILogger<SectionsController> logger)
         {
             _logger = logger;
-            Sections = new List<Section>();
-            Sections.Add(new Section(0, "Electronics"));
-            Sections.Add(new Section(2, "HouseholdChemicals"));
-            Sections.Add(new Section(3, "Cosmetics"));
-            Sections.Add(new Section(4, "Shoes"));
+           
         }
 
         public IActionResult GetView(int id)
         {
-            return View(Sections[id].Name);
+            HomeModel = new Home();
+            return View(HomeModel.Sections[id].Name);
         }
 
         //public IActionResult Electronics()

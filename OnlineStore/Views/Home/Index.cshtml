@@ -1,4 +1,5 @@
 ﻿@using OnlineStore.Controllers
+@model Home
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -19,7 +20,7 @@
                     <li class="@(i % 2 == 0 ? "right" : "") child card-image-0@(i)">
                         <div class="number">0@(i)</div>
                         <h2 class="card-head-text">
-                            <a asp-action=GetView asp-route-id=@(i - 1) asp-controller="Sections"> @ShopHelper.GetSections()[i - 1].Name</a>
+                            <a asp-action=GetView asp-route-id=@(i - 1) asp-controller="Sections">@Model.Sections[i - 1]</a>
                         </h2>
                         <p class="card-text">
                             @ShopHelper.GetSections()[i - 1].Description
