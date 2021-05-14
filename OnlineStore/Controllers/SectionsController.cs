@@ -11,38 +11,19 @@ namespace OnlineStore.Controllers
     public class SectionsController : Controller
     {
         private readonly ILogger<SectionsController> _logger;
-        public Home HomeModel { get; set; }
+        public ShopRepository Repository { get; set; }
+
 
         public SectionsController(ILogger<SectionsController> logger)
         {
             _logger = logger;
-           
+            Repository = new ShopRepository();
         }
 
-        public IActionResult GetView(int id)
+        public IActionResult Section(int id)
         {
-            HomeModel = new Home();
-            return View(HomeModel.Sections[id].Name);
+            return View(Repository.GetSections().FirstOrDefault(e => e.Id == id));
         }
 
-        //public IActionResult Electronics()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult HouseholdChemicals()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult Cosmetics()
-        //{
-        //    return View();
-        //}
-
-        //public IActionResult Shoes()
-        //{
-        //    return View();
-        //}
     }
 }

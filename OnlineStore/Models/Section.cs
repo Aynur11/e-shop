@@ -4,7 +4,7 @@ namespace OnlineStore.Models
 {
     public class Section
     {
-        public Section(int id, string name, List<string> goods)
+        public Section(int id, string name, List<Product> goods)
         {
             Id = id;
             Name = name;
@@ -13,6 +13,6 @@ namespace OnlineStore.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<string> Goods { get; set; }
+        public List<Product> Goods { get; set; }
     }
 }
