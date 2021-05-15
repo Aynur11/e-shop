@@ -22,7 +22,7 @@ namespace OnlineStore.Controllers
 
         public IActionResult Section(int id)
         {
-            return View(Repository.GetSections().FirstOrDefault(e => e.Id == id));
+            return View(Repository.Sections.FirstOrDefault(e => e.Id == id));
         }
 
     }

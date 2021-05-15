@@ -8,18 +8,18 @@ namespace OnlineStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public ShopRepository Repository { get; set; }
+        public IShopRepository Repository { get; set; }
 
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IShopRepository repository)
         {
             _logger = logger;
-            Repository = new ShopRepository();
+            Repository = repository;
         }
 
         public IActionResult Index()
         {
-            return View(Repository.GetSections());
+            return View(Repository.Sections);
         }
 
         public IActionResult Privacy()

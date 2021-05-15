@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using OnlineStore.Models;
 
 namespace OnlineStore
 {
@@ -24,6 +25,7 @@ namespace OnlineStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<IShopRepository, ShopRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
