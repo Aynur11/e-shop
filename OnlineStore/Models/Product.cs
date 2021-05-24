@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace OnlineStore.Models
 {
@@ -19,5 +21,7 @@ namespace OnlineStore.Models
         public string Name { get; set; }
         public int Article { get; set; }
         public int SectionId { get; set; }
+        [ForeignKey(nameof(SectionId))]
+        public Section Section { get; set; }
     }
 }

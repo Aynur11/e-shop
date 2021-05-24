@@ -15,12 +15,12 @@
         <div class="modules-content">
             <h1 class="modules-h1">Интернет магазин</h1>
             <ul class="card-list">
-                @for (int i = 1; i < @Model.Count + 1; i++)
+                @for (int i = 1; i < Model.Count + 1; i++)
                 {
                     <li class="@(i % 2 == 0 ? "right" : "") child card-image-0@(i)">
                         <div class="number">0@(i)</div>
                         <h2 class="card-head-text">
-                            <a asp-action=Section asp-route-id=@(i - 1) asp-controller="Sections">@Model[i - 1].Name</a>
+                            <a asp-action=Section asp-route-id=@i asp-controller="Sections">@Model[i - 1].Name</a>
                         </h2>
                         <p class="card-text">
                             @Model[i - 1].Name

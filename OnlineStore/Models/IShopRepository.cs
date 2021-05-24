@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Models
 {
-    public interface IShopRepository
+    public interface IShopRepository : IDisposable
     {
         List<Section> Sections { get; }
     }
