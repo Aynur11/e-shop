@@ -4,9 +4,8 @@ namespace OnlineStore.Models
 {
     public class Section
     {
-        public Section(int id, string name)
+        public Section(string name)
         {
-            Id = id;
             Name = name;
         }
 
