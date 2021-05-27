@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
+using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Models;
+using System.Linq;
 
 namespace OnlineStore.Controllers
 {
@@ -22,12 +19,17 @@ namespace OnlineStore.Controllers
             return View();
         }
 
-        public IActionResult GetDataFromSectionView(string name)
+        public IActionResult GetDataFromSectionView(string sectionName, string filePath)
         {
             using (var db = new DataContext())
             {
-                db.Sections.Add(
-                    new Section(name));
+                byte[] imageData;
+                using (FileStream fs = new FileStream(filePath, FileMode.Open))
+                {
+                    imageData = new byte[fs.Length];
+                    fs.Read(imageData, 0, imageData.Length);
+                }
+                db.Sections.Add(new Section(sectionName, new SectionImage(Path.GetFileName(filePath), imageData)));
                 db.SaveChanges();
             }
 

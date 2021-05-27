@@ -29,7 +29,7 @@ namespace OnlineStore.Controllers
 
         public IActionResult Manage()
         {
-            ViewBag.Title = "Управдение контентом";
+            ViewBag.Title = "Управление контентом";
             return View();
         }
 
