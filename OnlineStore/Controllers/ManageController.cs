@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Models;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using System;
 
 namespace OnlineStore.Controllers
 {
@@ -19,20 +22,26 @@ namespace OnlineStore.Controllers
             return View();
         }
 
-        public IActionResult GetDataFromSectionView(string sectionName, string filePath)
+        public async Task<IActionResult> GetDataFromSectionView(string sectionName, IFormFile uploadedFile)
         {
-            using (var db = new DataContext())
+            if (uploadedFile != null)
             {
+                string filePath = $"Files/{uploadedFile.FileName}";
                 byte[] imageData;
-                using (FileStream fs = new FileStream(filePath, FileMode.Open))
-                {
-                    imageData = new byte[fs.Length];
-                    fs.Read(imageData, 0, imageData.Length);
-                }
-                db.Sections.Add(new Section(sectionName, new SectionImage(Path.GetFileName(filePath), imageData)));
-                db.SaveChanges();
-            }
 
+                using (var fs = new FileStream(filePath, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fs);
+                    imageData = new byte[fs.Length];
+                    await fs.ReadAsync(imageData.AsMemory(0, imageData.Length));
+                }
+
+                using (var db = new DataContext())
+                {
+                    db.Sections.Add(new Section(sectionName, new SectionImage(Path.GetFileName(uploadedFile.FileName), imageData)));
+                    db.SaveChanges();
+                }
+            }
             return Redirect("~/");
         }
 

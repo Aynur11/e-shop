@@ -5,14 +5,14 @@ namespace OnlineStore.Models
 {
     public class SectionImage
     {
-        public SectionImage(byte[] data)
+        public SectionImage(string imageName, byte[] data)
         {
-            //FilePath = filePath;
+            ImageName = imageName;
             Data = data;
         }
 
         public int Id { get; set; }
-        //public string FilePath { get; set; }
+        public string ImageName { get; set; }
         public byte[] Data { get; set; }
         public int  SectionId { get; set; }
         [ForeignKey(nameof(SectionId))]

@@ -8,5 +8,6 @@ namespace OnlineStore.Models
         [Required]
         [Display(Name = "File")]
         public IFormFile FormFile { get; set; }
+        public Section Section { get; set; }
     }
 }
