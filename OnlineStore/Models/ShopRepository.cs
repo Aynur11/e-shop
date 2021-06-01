@@ -11,7 +11,7 @@ namespace OnlineStore.Models
         private bool disposed;
         private readonly DataContext context;
 
-        public List<Section> Sections => context.Sections.Include(p => p.Products).ToList();
+        public List<Section> Sections => context.Sections.Include(p => p.Products).Include(i => i.Image).ToList();
 
         public ShopRepository()
         {
