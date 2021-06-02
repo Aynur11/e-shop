@@ -4,6 +4,7 @@
 *.userosscache
 *.sln.docstates
 *.vcxproj.filters
+*.png
 
 # folders
 .vs/
