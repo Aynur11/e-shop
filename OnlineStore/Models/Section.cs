@@ -6,8 +6,8 @@ namespace OnlineStore.Models
     {
         public Section()
         {
-            
         }
+
         public Section(string name, SectionImage image)
         {
             Name = name;

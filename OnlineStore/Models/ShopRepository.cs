@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Models
 {
@@ -11,7 +10,10 @@ namespace OnlineStore.Models
         private bool disposed;
         private readonly DataContext context;
 
-        public List<Section> Sections => context.Sections.Include(p => p.Products).Include(i => i.Image).ToList();
+        public List<Section> Sections => context.Sections
+            .Include(p => p.Products)
+            .ThenInclude(i => i.Image)
+            .Include(i => i.Image).ToList();
 
         public ShopRepository()
         {

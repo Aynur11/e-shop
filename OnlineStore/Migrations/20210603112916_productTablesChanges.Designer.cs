@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineStore;
 
 namespace OnlineStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210603112916_productTablesChanges")]
+    partial class productTablesChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,15 +34,10 @@ namespace OnlineStore.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ProductImageId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SectionId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductImageId");
 
                     b.HasIndex("SectionId");
 
@@ -60,7 +57,13 @@ namespace OnlineStore.Migrations
                     b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("ProductImage");
                 });
@@ -106,21 +109,24 @@ namespace OnlineStore.Migrations
 
             modelBuilder.Entity("OnlineStore.Models.Product", b =>
                 {
-                    b.HasOne("OnlineStore.Models.ProductImage", "Image")
-                        .WithMany()
-                        .HasForeignKey("ProductImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("OnlineStore.Models.Section", "Section")
                         .WithMany("Products")
                         .HasForeignKey("SectionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Image");
-
                     b.Navigation("Section");
+                });
+
+            modelBuilder.Entity("OnlineStore.Models.ProductImage", b =>
+                {
+                    b.HasOne("OnlineStore.Models.Product", "Product")
+                        .WithOne("Image")
+                        .HasForeignKey("OnlineStore.Models.ProductImage", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("OnlineStore.Models.SectionImage", b =>
@@ -132,6 +138,11 @@ namespace OnlineStore.Migrations
                         .IsRequired();
 
                     b.Navigation("Section");
+                });
+
+            modelBuilder.Entity("OnlineStore.Models.Product", b =>
+                {
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("OnlineStore.Models.Section", b =>

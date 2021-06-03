@@ -5,13 +5,6 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-<!--<form action="~/Manage/GetDataFromSectionView" method="post">
-    <label>Имя раздела</label> <br />
-    <input type="text" name="sectionName" value="" /> <br />-->
-    @*<input type="file" runat="server" name="filePath" value="" /> <br /> <br />*@
-    <!--<p><input type="submit" value="Добавить" /> </p>
-</form>-->
-
 <form asp-action="GetDataFromSectionView" asp-controller="Manage" enctype="multipart/form-data" method="post">
     <dl>
         <dt>
@@ -24,7 +17,7 @@
             <input asp-for="FileUpload.FormFile" name="uploadedFile">
         </dd>
     </dl>
-    <input class="btn" type="submit" value="Upload">
+    <input type="submit" value="Загрузить">
 </form>
 </body>
 </html>

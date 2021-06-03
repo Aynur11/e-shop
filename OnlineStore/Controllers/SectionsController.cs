@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Models;
+using System.Linq;
 
 namespace OnlineStore.Controllers
 {
@@ -20,7 +17,7 @@ namespace OnlineStore.Controllers
             Repository = new ShopRepository();
         }
 
-        public IActionResult Section(int id)
+        public IActionResult Sections(int id)
         {
             return View(Repository.Sections.First(e => e.Id == id));
         }

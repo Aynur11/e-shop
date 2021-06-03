@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title>Модули</title>
-
 </head>
 
 <body class="wave">
@@ -19,59 +18,21 @@
             <h1 class="modules-h1">Интернет магазин</h1>
 
             <div class="section-parent">
-
                 @for (int i = 1; i < Model.Count + 1; i++)
                 {
-                    <div class="section-child">
-                        <a asp-action=Section asp-route-id=@i asp-controller="Sections">@Model[i - 1].Name</a>
-                        @if (Model[i - 1].Image != null)
-                        {
-                            byte[] img = new byte[Model[i - 1].Image.Data.Length];
-                            img = Model[i - 1].Image.Data;
-                            using (var fs = new FileStream($"Files/{Model[i - 1].Image.ImageName}", FileMode.Create))
-                            {
-                                fs.Write(img);
-                            }
-                            <img style='width: 80px; height: 60px;' src="data:image/png;base64,@(Convert.ToBase64String(Model[i - 1].Image.Data))" />
-                        }
-                        
-                        @Model[i - 1].Image?.ImageName;
-                    </div>
+                <div class="section-child">
+                    @if (Model[i - 1].Image != null)
+                    {
+                        <img class="section-img" src="data:image/png;base64,@(Convert.ToBase64String(Model[i - 1].Image.Data))" />
+                    }
+                    <p class="card-text-new">
+                        <a asp-action=Sections asp-route-id=@Model[i - 1].Id asp-controller="Sections">@Model[i - 1].Name</a>
+                    </p>
+                </div>
                 }
             </div>
-
-            <ul class="card-list">
-                @for (int i = 1; i < Model.Count + 1; i++)
-                {
-                    <li class="@(i % 2 == 0 ? "right" : "") child card-image-0@(i)">
-                        <div class="number">0@(i)</div>
-                        <h2 class="card-head-text">
-                            <a asp-action=Section asp-route-id=@i asp-controller="Sections">@Model[i - 1].Name</a>
-                            @{
-                                if (Model[i - 1].Image != null)
-                                {
-                                    byte[] img = new byte[Model[i - 1].Image.Data.Length];
-                                    img = Model[i - 1].Image.Data;
-                                    using (var fs = new FileStream($"Files/{Model[i - 1].Image.ImageName}", FileMode.Create))
-                                    {
-                                        fs.Write(img);
-                                    }
-                                    <img style='width: 80px; height: 60px;' src="data:image/png;base64,@(Convert.ToBase64String(Model[i - 1].Image.Data))" />
-                                }
-
-                            }
-                        </h2>
-                        <p class="card-text">
-                            @Model[i - 1].Name <br>
-                            @Model[i - 1].Image?.ImageName;
-                        </p>
-                    </li>
-                }
-            </ul>
-
             <button class="button-show-more"><span class="button-show-more-text"> Показать еще</span></button>
         </div>
-
     </div>
 </body>
 

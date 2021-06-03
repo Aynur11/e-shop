@@ -250,15 +250,27 @@ a {
 .section-parent {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 200px;
 }
 
 .section-child {
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-top: 1px;
+    margin-right: 50px;
     margin-bottom: 10px;
-    padding-left: 5px;
     height: 200px;
     width: 300px;
-    border: 1px solid;
+    box-shadow: 0px 3px 20px 0px rgba(83, 83, 83, 0.31);
+}
+
+.section-child:nth-child(3n) {
+    margin-right: 0;
+}
+
+.section-img {
+    width: 300px; 
+    height: 100px;
+}
+
+.card-text-new {
+    margin-left: 20px;
 }

@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineStore.Models
 {
     public class Product
     {
-        public Product(int id, string name, int article, int sectionId)
+        public Product()
         {
-            Id = id;
+        }
+
+        public Product(string name, int article, ProductImage image, int sectionId)
+        {
             Name = name;
             Article = article;
+            Image = image;
             SectionId = sectionId;
         }
 
@@ -23,5 +22,9 @@ namespace OnlineStore.Models
         public int SectionId { get; set; }
         [ForeignKey(nameof(SectionId))]
         public Section Section { get; set; }
+        public int ProductImageId { get; set; }
+        [ForeignKey(nameof(ProductImageId))]
+        public ProductImage Image { get; set; }
+
     }
 }
