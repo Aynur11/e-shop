@@ -9,25 +9,19 @@
 <h1>Разнообразный ассортимент!</h1>
 <br />
 <div class="section-parent">
-    @for (int i = 1; i < Model.Products.Count; i++)
+    @foreach (var product in Model.Products)
     {
         <div class="section-child">
-            @if (Model.Products[i - 1].Image != null)
-              {
-                <img class="section-img" src="data:image/png;base64,@(Convert.ToBase64String(Model.Products[i - 1].Image.Data))" />
-              }
+            @if (product.Image != null)
+            {
+                <img class="section-img" src="data:image/png;base64,@(Convert.ToBase64String(product.Image.Data))"/>
+            }
             <p class="card-text-new">
-                @Model.Products[i - 1].Name
+                @product.Name
             </p>
         </div>
     }
-</div>
 
-@*@for (int i = 0; i < Model.Products.Count; i++)
-{
-    <h2>Товар № @(i + 1)</h2>
-    <p>@Model.Products[i].Name</p>
-    <p>@Model.Products[i].Article</p>
-}*@
+</div>
 </body>
 </html>

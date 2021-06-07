@@ -36,15 +36,6 @@
     box-sizing: border-box;
 }
 
-.main-content {
-    background-color: #222020;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 body {
     font-family: 'Gilroy', sans-serif;
 }
@@ -54,28 +45,7 @@ a {
     text-decoration: none;
 }
 
-.heading {
-    color: white;
-    font-family: ‘Graphik LCG’, sans-serif;
-    margin-bottom: 30px;
-}
-
-.download-link {
-    padding: 20px;
-    color: white;
-    background-color: #2f1ce4;
-    border: 3px solid #2f1ce4;
-    display: inline-block;
-}
-
-.details {
-    padding: 20px;
-    color: white;
-    background-color: transparent;
-    border: 3px solid white;
-    display: inline-block;
-}
-
+/*TODO: Задействовать*/
 .container {
     width: 1170px;
     margin: 0 auto;
@@ -83,68 +53,10 @@ a {
     padding-bottom: 30px;
 }
 
-.return-img {
-    background-image: url(../img/return.png);
-    background-size: 20px;
-    background-repeat: no-repeat;
-    background-position: center left;
-    padding: 30px;
-    font-size: 18px;
-}
-
-.head-h1 {
-    margin-top: 100px;
-    padding-left: 100px;
-    font-size: 48px;
-    color: #222020;
-}
-
-.h2-style {
-    margin-top: 100px;
-    margin-left: 180px;
-    margin-bottom: 25px;
-    font-size: 36px;
-    color: #2f1ce4;
-}
-
-.list {
-    padding-left: 200px;
-    font-size: 18px;
-}
-
-.paragraph {
-    padding-left: 180px;
-    padding-bottom: 20px;
-}
-
-.illustration {
-    margin-top: 50px;
-    margin-left: 200px;
-    margin-bottom: 50px;
-    display: inline-block;
-    text-align: center;
-    max-width: 400px;
-}
-
-.tags-table, .tags-table th, .tags-table td {
-    margin-left: 180px;
-    margin-top: 100px;
-    border: 3px solid #a0a0a0;
-    color: black;
-    border-collapse: collapse;
-    padding: unset;
-}
-
 .modules-container {
     width: 1180px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.skillbox {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    font-size: 40px;
 }
 
 .modules-content {
@@ -156,71 +68,8 @@ a {
 .modules-h1 {
     font-size: 48px;
     color: #222020;
-    padding-top: 100px;
+    padding-top: 10px;
     padding-left: 20px;
-}
-
-.card-list {
-    margin-top: 85px;
-    font-size: 0;
-}
-
-.child {
-    display: inline-block;
-    margin-right: 48px;
-    margin-bottom: 55px;
-    width: 480px;
-    height: 500px;
-    position: relative;
-    box-shadow: 0px 3px 20px 0px rgba(83, 83, 83, 0.31);
-}
-
-.right {
-    margin-right: 0;
-}
-
-.number {
-    font-size: 48px;
-    color: #eaeaea;
-    right: 20px;
-    bottom: 20px;
-    position: absolute;
-}
-
-.card-image-01 {
-    background-image: url(../img/electronics.jpg);
-    background-repeat: no-repeat;
-}
-
-.card-image-02 {
-    background-image: url(../img/household-chemicals.jpg);
-    background-repeat: no-repeat;
-}
-
-.card-image-03 {
-    background-image: url(../img/cosmetics.jpg);
-    background-repeat: no-repeat;
-}
-
-.card-image-04 {
-    background-image: url(../img/shoes.jpg);
-    background-repeat: no-repeat;
-}
-
-.card-head-text {
-    left: 50px;
-    font-size: 36px;
-    color: #2f1ce4;
-    top: 200px;
-    position: absolute;
-}
-
-.card-text {
-    left: 50px;
-    font-size: 16px;
-    top: 265px;
-    line-height: 30px;
-    position: absolute;
 }
 
 .button-show-more {
@@ -245,18 +94,16 @@ a {
     padding-bottom: 620px;
 }
 
-
-
 .section-parent {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 .section-child {
     margin-top: 1px;
     margin-right: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     height: 200px;
     width: 300px;
     box-shadow: 0px 3px 20px 0px rgba(83, 83, 83, 0.31);

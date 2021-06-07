@@ -25,7 +25,7 @@ namespace OnlineStore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddSingleton<IShopRepository, ShopRepository>();
+            services.AddScoped<IShopRepository, ShopRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

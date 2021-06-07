@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Mvc.RazorPages
+@model BufferedSingleFileUploadDbModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <form asp-action="GetDataFromProductEditView" asp-controller="Manage" enctype="multipart/form-data" method="post">
+        <label>Введите ID раздела</label> <br />
+        <input type="number" name="id" value="" /> <br /> <br />
+        <dl>
+            <dt>
+                <label>Имя товара</label>
+            </dt>
+            <dd>
+                <input asp-for="FileUpload.Product.Name" type="text" name="productName" />
+            </dd>
+
+            <dt>
+                <label>Артикул товара</label>
+            </dt>
+            <dd>
+                <input asp-for="FileUpload.Product.Article" type="text" name="article" />
+            </dd>
+
+            <dt>
+                <label>Номер категории</label>
+            </dt>
+            <dd>
+                <input asp-for="FileUpload.Product.SectionId" type="text" name="sectionId" />
+            </dd>
+
+            <dd>
+                <input asp-for="FileUpload.FormFile" name="uploadedFile">
+            </dd>
+        </dl>
+        <input type="submit" value="Загрузить">
+    </form>
+</body>
+</html>
