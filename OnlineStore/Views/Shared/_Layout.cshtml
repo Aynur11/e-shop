@@ -28,6 +28,12 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Manage">Manage</a>
                         </li>
                     </ul>
+
+                    <form action="" method="get">
+                        <input name="s" id="search" placeholder="Поиск товаров по названию категории..." type="search" class="search-input">
+                        <button type="submit" id="submit">Поиск</button>
+
+                    </form>
                 </div>
             </div>
         </nav>
@@ -47,5 +53,17 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <div id="results"></div>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#submit').click(function (e) {
+            e.preventDefault();
+            var name = $('#search').val();
+            name = encodeURIComponent(name);
+            $('#results').load('@Url.Action("ProductsSearch", "Home")?name='+name);
+        });
+    });
+    </script>
 </body>
 </html>

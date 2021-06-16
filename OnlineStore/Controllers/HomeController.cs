@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OnlineStore.Models;
 using System.Diagnostics;
+using System.Linq;
 
 namespace OnlineStore.Controllers
 {
@@ -31,6 +33,12 @@ namespace OnlineStore.Controllers
         {
             ViewBag.Title = "Управление контентом";
             return View();
+        }
+
+        public ActionResult ProductsSearch(string name)
+        {
+            var products = Repository.Sections.Where(a => a.Name.Contains(name)).SelectMany(p => p.Products).ToList();
+            return PartialView(products);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
