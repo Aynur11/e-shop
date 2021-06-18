@@ -32,6 +32,7 @@
                     <form action="" method="get">
                         <input name="s" id="search" placeholder="Поиск товаров по названию категории..." type="search" class="search-input">
                         <button type="submit" id="submit">Поиск</button>
+                        <button type="button" id="go-back">Назад</button>
 
                     </form>
                 </div>
@@ -54,10 +55,18 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 
-    <div id="results"></div>
+
     <script type="text/javascript">
     $(document).ready(function () {
+        $('#go-back').click(function (e) {
+            $('#results').hide();
+            $('#sections').show();
+        });
+    });
+    $(document).ready(function () {
         $('#submit').click(function (e) {
+            $('#sections').hide();
+            $('#results').show();
             e.preventDefault();
             var name = $('#search').val();
             name = encodeURIComponent(name);

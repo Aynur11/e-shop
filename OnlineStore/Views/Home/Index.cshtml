@@ -16,22 +16,25 @@
     <div class="modules-container">
         <div class="modules-content">
             <h1 class="modules-h1">Интернет магазин</h1>
-
-            <div class="section-parent">
-                @foreach (var section in Model)
-                {
-                    <div class="section-child">
-                        @if (section.Image != null)
-                        {
-                            <img class="section-img" src="data:image/png;base64,@(Convert.ToBase64String(section.Image.Data))" />
-                        }
-                        <p class="card-text-new">
-                            <a asp-action=Sections asp-route-id=@(section.Id) asp-controller="Sections">@(section.Name)</a>
-                        </p>
-                    </div>
-                }
+            <div id="results"></div>
+            <div id="sections">
+                <div class="section-parent">
+                    @foreach (var section in Model)
+                    {
+                        <div class="section-child">
+                            @if (section.Image != null)
+                            {
+                                <img class="section-img" src="data:image/png;base64,@(Convert.ToBase64String(section.Image.Data))" />
+                            }
+                            <p class="card-text-new">
+                                <a asp-action=Sections asp-route-id=@(section.Id) asp-controller="Sections">@(section.Name)</a>
+                            </p>
+                        </div>
+                    }
+                </div>
+                <button class="button-show-more"><span class="button-show-more-text"> Показать еще</span></button>
             </div>
-            <button class="button-show-more"><span class="button-show-more-text"> Показать еще</span></button>
+
         </div>
     </div>
 </body>
