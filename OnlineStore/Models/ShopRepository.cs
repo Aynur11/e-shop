@@ -20,9 +20,9 @@ namespace OnlineStore.Models
 
         public List<ProductImage> ProductImages => context.ProductImages.ToList();
 
-        public ShopRepository()
+        public ShopRepository(DataContext context)
         {
-            context = new DataContext();
+            this.context = context;
         }
 
         public void Add(Section section)

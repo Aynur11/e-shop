@@ -5,21 +5,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System;
-using System.IO;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace OnlineStore.Controllers
 {
+    [Authorize]
     public class ManageController : Controller
     {
+        private IShopRepository repo;
+
+        public ManageController(IShopRepository repo)
+        {
+            this.repo = repo;
+        }
+
         public IActionResult AddSection()
         {
             ViewBag.Title = "Добавление раздела";
             return View();
         }
+
         public IActionResult EditSection()
         {
-            ViewBag.Title = "Редактирвоание раздела";
+            ViewBag.Title = "Редактирование раздела";
             return View();
         }
 
@@ -67,7 +75,7 @@ namespace OnlineStore.Controllers
                     await fs.ReadAsync(imageData.AsMemory(0, imageData.Length));
                 }
 
-                using (var repo = new ShopRepository())
+                using (repo)
                 {
                     var section = repo.Sections.FirstOrDefault(i => i.Id == id);
                     if (section != null)
@@ -102,7 +110,7 @@ namespace OnlineStore.Controllers
                     await fs.ReadAsync(imageData.AsMemory(0, imageData.Length));
                 }
 
-                using (var repo = new ShopRepository())
+                using (repo)
                 {
                     var product = repo.Products.FirstOrDefault(i => i.Id == id);
                     if (product != null)
@@ -140,7 +148,7 @@ namespace OnlineStore.Controllers
                     await fs.ReadAsync(imageData.AsMemory(0, imageData.Length));
                 }
 
-                using (var repo = new ShopRepository())
+                using (repo)
                 {
                     repo.Add(new Section(sectionName, new SectionImage(Path.GetFileName(uploadedFile.FileName), imageData)));
                     repo.Save();
@@ -169,7 +177,7 @@ namespace OnlineStore.Controllers
                     await fs.ReadAsync(imageData.AsMemory(0, imageData.Length));
                 }
 
-                using (var repo = new ShopRepository())
+                using (repo)
                 {
                     repo.Add(new Product(productName, article, new ProductImage(Path.GetFileName(uploadedFile.FileName), imageData), sectionId));
                     repo.Save();
@@ -185,7 +193,7 @@ namespace OnlineStore.Controllers
         [HttpPost]
         public IActionResult RemoveSection(int id)
         {
-            using (var repo = new ShopRepository())
+            using (repo)
             {
                 var section = repo.Sections.FirstOrDefault(i => i.Id == id);
                 if (section != null)
@@ -202,7 +210,7 @@ namespace OnlineStore.Controllers
         [HttpPost]
         public IActionResult RemoveProduct(int id)
         {
-            using (var repo = new ShopRepository())
+            using (repo)
             {
                 var product = repo.Products.FirstOrDefault(i => i.Id == id);
                 if (product != null)

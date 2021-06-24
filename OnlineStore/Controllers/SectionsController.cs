@@ -11,10 +11,10 @@ namespace OnlineStore.Controllers
         public ShopRepository Repository { get; set; }
 
 
-        public SectionsController(ILogger<SectionsController> logger)
+        public SectionsController(ILogger<SectionsController> logger, DataContext context)
         {
             _logger = logger;
-            Repository = new ShopRepository();
+            Repository = new ShopRepository(context);
         }
 
         public IActionResult Sections(int id)

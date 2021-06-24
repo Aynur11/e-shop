@@ -1,0 +1,74 @@
+﻿@model OnlineStore.Authorization.UserRegistration
+@{
+    ViewData["Title"] = "Registration";
+
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+<form name="registration" asp-action="Register" asp-antiforgery="true" autocomplete="off">
+    <div class="form-group">
+        <label for="username">Имя пользователя</label>
+        <input asp-for="UserName" name="username" type="text" class="form-control" id="username" placeholder="Введите имя пользователя">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input asp-for="Password" name="password" type="password" class="form-control" id="password" placeholder="Введите пароль">
+        <label for="password">Confirm password</label>
+        <input asp-for="ConfirmPassword" name="passwordConfirm" id="passwordConfirm" type="password" class="form-control" id="password-confirm" placeholder="Продублируйте пароль">
+    </div>
+    <button type="submit" class="btn btn-primary" onclick="return CheckFields(document.registration.username, document.registration.password, document.registration.passwordConfirm);">
+        Создать аккаунт
+    </button>
+    <label id="modelState" style="display:none;">Ошибка!</label>
+</form>
+<script type="text/javascript">
+        function CheckFields(username, password, passwordConfirm) {
+            document.getElementById(username.name).style.borderColor = '#ced4da';
+            document.getElementById(password.name).style.borderColor = '#ced4da';
+            document.getElementById(passwordConfirm.name).style.borderColor = '#ced4da';
+            var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$/;
+
+            if (!username.value) {
+                alert("Имя пользователя не должно быть пустым");
+                document.getElementById(username.name).style.borderColor = 'red';
+                return false;
+            }
+            if (!password.value) {
+                alert("Пароль не должен быть пустым");
+                document.getElementById(password.name).style.borderColor = 'red';
+                return false;
+            }
+
+            if (!password.value.match(passw)) {
+                alert("Пароль должен содержать как минимум одну строчную букву, одну заглавную букву, одну цифровую цифру и один специальный символ");
+                document.getElementById(password.name).style.borderColor = 'red';
+                return false;
+            }
+
+            if (!passwordConfirm.value) {
+                alert("Подтверждение пароля не должно быть пустым");
+                document.getElementById(passwordConfirm.name).style.borderColor = 'red';
+                return false;
+            }
+            if (password.value != passwordConfirm.value) {
+                alert("Пароль и его подтверждение должны совпадать");
+                document.getElementById(password.name).style.borderColor = 'red';
+                document.getElementById(passwordConfirm.name).style.borderColor = 'red';
+                return false;
+            }
+            return true;
+        }
+</script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#submit').click(function (e) {
+            $('#modelState').hide();
+        });
+    });
+    </script>
+</body>
+</html>

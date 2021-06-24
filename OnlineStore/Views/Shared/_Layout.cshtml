@@ -33,7 +33,7 @@
                         <input name="s" id="search" placeholder="Поиск товаров по названию категории..." type="search" class="search-input">
                         <button type="submit" id="submit">Поиск</button>
                         <button type="button" id="go-back">Назад</button>
-
+                        @await Component.InvokeAsync("LogoutView")
                     </form>
                 </div>
             </div>

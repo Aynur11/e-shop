@@ -1,0 +1,8 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <strong>Здравствуйте, @User.Identity.Name!</strong>
+}
+else
+{
+    <strong>Вы не авторизованы!</strong>
+}
