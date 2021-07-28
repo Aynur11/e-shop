@@ -18,7 +18,7 @@
         <label for="password">Password</label>
         <input asp-for="Password" name="password" type="password" class="form-control" id="password" placeholder="Введите пароль">
         <label for="password">Confirm password</label>
-        <input asp-for="ConfirmPassword" name="passwordConfirm" id="passwordConfirm" type="password" class="form-control" id="password-confirm" placeholder="Продублируйте пароль">
+        <input asp-for="ConfirmPassword" name="passwordConfirm" id="passwordConfirm" type="password" class="form-control" placeholder="Продублируйте пароль">
     </div>
     <button type="submit" class="btn btn-primary" onclick="return CheckFields(document.registration.username, document.registration.password, document.registration.passwordConfirm);">
         Создать аккаунт

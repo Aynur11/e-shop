@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
-namespace OnlineStore.Models
+namespace StoreApi.Models
 {
     public class ShopRepository : IShopRepository
     {
