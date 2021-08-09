@@ -9,6 +9,10 @@
 <h1>Разнообразный ассортимент!</h1>
 <br />
 <div class="section-parent">
+    @if (Model.Products == null)
+    {
+        return;
+    }
     @foreach (var product in Model.Products)
     {
         <div class="section-child">
