@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StoreApi.Models;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace StoreApi.Controllers
 {
@@ -32,6 +34,21 @@ namespace StoreApi.Controllers
         public void RemoveProduct([FromBody] Product product)
         {
             Repository.Remove(product);
+            Repository.Save();
+        }
+
+        [HttpPost("UpdateProduct")]
+        public void UpdateProduct([FromBody] Product product)
+        {
+            var dbProduct = Repository.Products.FirstOrDefault(s => s.Id == product.Id);
+            if (dbProduct == null)
+            {
+                Debug.WriteLine("Обновляемая сущность не найдена.");
+                return;
+            }
+            dbProduct.Image.ImageName = product.Image.ImageName;
+            dbProduct.Image.Data = product.Image.Data;
+            dbProduct.Name = product.Name;
             Repository.Save();
         }
     }

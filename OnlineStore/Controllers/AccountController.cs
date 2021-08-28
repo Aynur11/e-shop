@@ -62,7 +62,6 @@ namespace OnlineStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                Debug.WriteLine("Model state is valid");
                 var user = new User
                 {
                     UserName = model.UserName,
@@ -72,8 +71,6 @@ namespace OnlineStore.Controllers
 
                 if (createResult.Succeeded)
                 {
-                    Debug.WriteLine("createResult.Succeeded");
-
                     await signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -82,8 +79,6 @@ namespace OnlineStore.Controllers
                     ModelState.AddModelError("", identityError.Description);
                 }
             }
-            Debug.WriteLine("Model state is error");
-
             return View(model);
         }
 

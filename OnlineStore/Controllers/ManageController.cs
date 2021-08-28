@@ -83,7 +83,7 @@ namespace OnlineStore.Controllers
                         section.Name = sectionName;
                         section.Image.ImageName= uploadedFile.FileName;
                         section.Image.Data = imageData;
-                        repo.Save();
+                        repo.Update(section);
                         return Redirect("~/");
                     }
                 }
@@ -120,7 +120,7 @@ namespace OnlineStore.Controllers
                         product.SectionId = sectionId;
                         product.Image.ImageName = uploadedFile.FileName;
                         product.Image.Data = imageData;
-                        repo.Save();
+                        repo.Update(product);
                         return Redirect("~/");
                     }
                 }
@@ -151,7 +151,6 @@ namespace OnlineStore.Controllers
                 using (repo)
                 {
                     repo.Add(new Section(sectionName, new SectionImage(Path.GetFileName(uploadedFile.FileName), imageData)));
-                    repo.Save();
                 }
  
                 if (System.IO.File.Exists(filePath))
@@ -180,7 +179,6 @@ namespace OnlineStore.Controllers
                 using (repo)
                 {
                     repo.Add(new Product(productName, article, new ProductImage(Path.GetFileName(uploadedFile.FileName), imageData), sectionId));
-                    repo.Save();
                 }
                 if (System.IO.File.Exists(filePath))
                 {
@@ -199,7 +197,7 @@ namespace OnlineStore.Controllers
                 if (section != null)
                 {
                     repo.Remove(section);
-                    repo.Save();
+                    //repo.Save();
                     return Redirect("~/");
 
                 }
@@ -220,7 +218,7 @@ namespace OnlineStore.Controllers
                         repo.ProductImages.Remove(product.Image);
                     }
                     repo.Remove(product);
-                    repo.Save();
+                    //repo.Save();
                     return Redirect("~/");
                 }
                 return Redirect("EntityNotFound");

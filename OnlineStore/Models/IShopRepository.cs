@@ -19,6 +19,8 @@ namespace OnlineStore.Models
 
         void Remove(Product product);
 
-        void Save();
+        //void Save();
+        void Update(Section section);
+        void Update(Product product);
     }
 }

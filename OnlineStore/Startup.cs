@@ -27,7 +27,7 @@ namespace OnlineStore
             services.AddDbContext<DataContext>(options => options.UseSqlServer(
                 Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
-            services.AddScoped<IShopRepository, ShopApi>();
+            services.AddScoped<IShopRepository, ShopApiClient>();
             services.AddSingleton<HttpClient, HttpClient>();
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<DataContext>()

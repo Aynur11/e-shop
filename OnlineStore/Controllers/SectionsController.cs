@@ -9,13 +9,13 @@ namespace OnlineStore.Controllers
     public class SectionsController : Controller
     {
         private readonly ILogger<SectionsController> _logger;
-        public ShopApi Repository { get; set; }
+        public ShopApiClient Repository { get; set; }
 
 
         public SectionsController(ILogger<SectionsController> logger, DataContext context, HttpClient httpClient)
         {
             _logger = logger;
-            Repository = new ShopApi(context, httpClient);
+            Repository = new ShopApiClient(context, httpClient);
         }
 
         public IActionResult Sections(int id)
