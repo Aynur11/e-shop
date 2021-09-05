@@ -2,6 +2,7 @@
 using System.Net.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OnlineStore.Dal;
 using OnlineStore.Web.Models;
 
 namespace OnlineStore.Web.Controllers

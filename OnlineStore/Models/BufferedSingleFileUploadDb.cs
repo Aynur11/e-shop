@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
+using OnlineStore.Dal.Models;
 
 namespace OnlineStore.Web.Models
 {

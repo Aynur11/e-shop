@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
-using OnlineStore.Api.Models;
+using OnlineStore.Dal.Models;
 
 namespace OnlineStore.Api.Controllers
 {

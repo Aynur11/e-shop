@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using OnlineStore.Dal;
+using OnlineStore.Dal.Models;
 
-namespace OnlineStore.Api.Models
+namespace OnlineStore.Api
 {
     public class ShopRepository : IShopRepository
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using OnlineStore.Dal.Models;
 
 namespace OnlineStore.Web.Models
 {

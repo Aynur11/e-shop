@@ -1,4 +1,4 @@
-﻿namespace OnlineStore.Web.Models
+﻿namespace OnlineStore.Dal.Models
 {
     public class ProductImage
     {

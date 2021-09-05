@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OnlineStore.Api.Models
+namespace OnlineStore.Dal.Models
 {
     public class Section
     {

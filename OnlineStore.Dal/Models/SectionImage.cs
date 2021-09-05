@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnlineStore.Api.Models
+namespace OnlineStore.Dal.Models
 {
     public class SectionImage
     {
