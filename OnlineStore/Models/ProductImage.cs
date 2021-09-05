@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace OnlineStore.Models
+﻿namespace OnlineStore.Web.Models
 {
     public class ProductImage
     {
@@ -13,8 +11,5 @@ namespace OnlineStore.Models
         public int Id { get; set; }
         public string ImageName { get; set; }
         public byte[] Data { get; set; }
-        //public int ProductId { get; set; }
-        //[ForeignKey(nameof(ProductId))]
-        //public Product Product { get; set; }
     }
 }

@@ -1,14 +1,15 @@
-﻿@model IEnumerable<OnlineStore.Models.Product>
+﻿@model IEnumerable<OnlineStore.Web.Models.Product>
 
 <div id="searchresults" class="modules-container">
     @if (Model.Count() > 0)
     {
-        <h3>Все найденные товары категории @Model.First().Section.Name</h3>
+        <h3>Все найденные товары категории @Model.First().Section?.Name</h3> <br />
+
         <ul>
             @foreach (var item in Model)
             {
                 <li>
-                    Имя товара: @item.Name <br />
+                    <b> Имя товара:</b> @item.Name <br />
                     ID товара: @item.Id <br />
                     Артикул: @item.Article <br />
                     Фото товара:
@@ -19,5 +20,6 @@
                 </li>
             }
         </ul>
+
     }
 </div>

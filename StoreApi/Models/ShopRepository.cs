@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace StoreApi.Models
+namespace OnlineStore.Api.Models
 {
     public class ShopRepository : IShopRepository
     {
@@ -16,7 +16,8 @@ namespace StoreApi.Models
             .Include(i => i.Image).ToList();
 
         public List<Product> Products => context.Products
-            .Include(i => i.Image).ToList();
+            .Include(i => i.Image)
+            .Include(s => s.Section).ToList();
 
         public List<ProductImage> ProductImages => context.ProductImages.ToList();
 

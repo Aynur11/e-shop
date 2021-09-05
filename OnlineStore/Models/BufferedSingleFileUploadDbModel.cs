@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace OnlineStore.Models
+namespace OnlineStore.Web.Models
 {
     public class BufferedSingleFileUploadDbModel: PageModel
     {

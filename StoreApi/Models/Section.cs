@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StoreApi.Models
+namespace OnlineStore.Api.Models
 {
     public class Section
     {

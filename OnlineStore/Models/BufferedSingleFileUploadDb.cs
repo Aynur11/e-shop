@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
-namespace OnlineStore.Models
+namespace OnlineStore.Web.Models
 {
     public class BufferedSingleFileUploadDb
     {

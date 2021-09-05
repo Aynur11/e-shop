@@ -1,13 +1,13 @@
-﻿using System.IO;
-using Microsoft.AspNetCore.Mvc;
-using OnlineStore.Models;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using OnlineStore.Web.Models;
 
-namespace OnlineStore.Controllers
+namespace OnlineStore.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller

@@ -1,4 +1,4 @@
-﻿namespace StoreApi.Models
+﻿namespace OnlineStore.Api.Models
 {
     public class ProductImage
     {

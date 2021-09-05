@@ -1,13 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using StoreApi.Models;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using Microsoft.Net.Http.Headers;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using OnlineStore.Api.Models;
 
-namespace StoreApi.Controllers
+namespace OnlineStore.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

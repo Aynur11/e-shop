@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OnlineStore.Models
+namespace OnlineStore.Web.Models
 {
     public interface IShopRepository : IDisposable
     {

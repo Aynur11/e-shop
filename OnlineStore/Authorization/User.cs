@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace OnlineStore.Authorization
+namespace OnlineStore.Web.Authorization
 {
     public class User : IdentityUser
     {

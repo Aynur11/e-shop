@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OnlineStore.Models;
-using System.Diagnostics;
-using System.Linq;
+using OnlineStore.Web.Models;
 
-namespace OnlineStore.Controllers
+namespace OnlineStore.Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -37,7 +36,8 @@ namespace OnlineStore.Controllers
 
         public ActionResult ProductsSearch(string name)
         {
-            var products = Repository.Sections.Where(a => a.Name.Contains(name)).SelectMany(p => p.Products).ToList();
+            var products = Repository.Sections.Where(a => a.Name.Contains(name)).SelectMany(p => 
+                p.Products).ToList();
             return PartialView(products);
         }
 

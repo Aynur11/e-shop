@@ -1,11 +1,9 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OnlineStore.Authorization;
+using OnlineStore.Web.Authorization;
 
-namespace OnlineStore.Controllers
+namespace OnlineStore.Web.Controllers
 {
     public class AccountController : Controller
     {
@@ -64,8 +62,7 @@ namespace OnlineStore.Controllers
             {
                 var user = new User
                 {
-                    UserName = model.UserName,
-                    
+                    UserName = model.UserName
                 };
                 var createResult = await userManager.CreateAsync(user, model.Password);
 

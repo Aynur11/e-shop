@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using OnlineStore.Authorization;
-using OnlineStore.Models;
+using OnlineStore.Web.Authorization;
+using OnlineStore.Web.Models;
 
-namespace OnlineStore
+namespace OnlineStore.Web
 {
     public class DataContext : IdentityDbContext<User>
     {

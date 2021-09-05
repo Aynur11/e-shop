@@ -1,17 +1,17 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using Newtonsoft.Json;
 
-namespace OnlineStore.Models
+namespace OnlineStore.Web.Models
 {
     /// <summary>
     /// Класс для обращения к Web-API онлайн-магазина.
     /// </summary>
     public class ShopApiClient : IShopRepository
     {
-        private HttpClient httpClient { get; }
+        private HttpClient HttpClient { get; }
 
         private bool disposed;
         private readonly DataContext context;
@@ -21,7 +21,7 @@ namespace OnlineStore.Models
             get
             {
                 string url = "https://localhost:44379/api/Sections/GetSections";
-                var json = httpClient.GetStringAsync(url).Result;
+                var json = HttpClient.GetStringAsync(url).Result;
                return JsonConvert.DeserializeObject<List<Section>>(json);
             }
         }
@@ -31,7 +31,7 @@ namespace OnlineStore.Models
             get
             {
                 string url = "https://localhost:44379/api/Products/GetProducts";
-                var json = httpClient.GetStringAsync(url).Result;
+                var json = HttpClient.GetStringAsync(url).Result;
                 return JsonConvert.DeserializeObject<List<Product>>(json);
             }
         }
@@ -41,7 +41,7 @@ namespace OnlineStore.Models
             get
             {
                 string url = "https://localhost:44379/api/Products/GetProductImages";
-                var json = httpClient.GetStringAsync(url).Result;
+                var json = HttpClient.GetStringAsync(url).Result;
                 return JsonConvert.DeserializeObject<List<ProductImage>>(json);
             }
         }
@@ -50,14 +50,14 @@ namespace OnlineStore.Models
         public ShopApiClient(DataContext context, HttpClient httpClient)
         {
             this.context = context;
-            this.httpClient = httpClient;
+            this.HttpClient = httpClient;
         }
 
         public void Add(Section section)
         {
             string url = "https://localhost:44379/api/Sections/AddSection";
             var httpContent = new StringContent(JsonConvert.SerializeObject(section), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         public void Add(Product product)
@@ -66,7 +66,7 @@ namespace OnlineStore.Models
 
             string url = "https://localhost:44379/api/Products/AddProduct";
             var httpContent = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         public void Remove(Section section)
@@ -74,7 +74,7 @@ namespace OnlineStore.Models
             //context.Sections.Remove(section);
             string url = "https://localhost:44379/api/Sections/RemoveSection";
             var httpContent = new StringContent(JsonConvert.SerializeObject(section), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         public void Remove(Product product)
@@ -82,7 +82,7 @@ namespace OnlineStore.Models
             //context.Products.Remove(product);
             string url = "https://localhost:44379/api/Products/RemoveProduct";
             var httpContent = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace OnlineStore.Models
         {
             string url = "https://localhost:44379/api/Sections/UpdateSection";
             var httpContent = new StringContent(JsonConvert.SerializeObject(section), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace OnlineStore.Models
         {
             string url = "https://localhost:44379/api/Products/UpdateProduct";
             var httpContent = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-            httpClient.PostAsync(url, httpContent);
+            HttpClient.PostAsync(url, httpContent);
         }
 
         protected virtual void Dispose(bool disposing)

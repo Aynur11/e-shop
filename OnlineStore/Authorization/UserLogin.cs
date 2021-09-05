@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OnlineStore.Authorization
+namespace OnlineStore.Web.Authorization
 {
     public class UserLogin
     {

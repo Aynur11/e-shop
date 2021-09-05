@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using OnlineStore.Models;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using OnlineStore.Web.Models;
 
-namespace OnlineStore.Controllers
+namespace OnlineStore.Web.Controllers
 {
     public class SectionsController : Controller
     {

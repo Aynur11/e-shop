@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Microsoft.EntityFrameworkCore;
-using StoreApi.Models;
 using Newtonsoft.Json;
+using OnlineStore.Api.Models;
 
-namespace StoreApi
+namespace OnlineStore.Api
 {
     public class Startup
     {

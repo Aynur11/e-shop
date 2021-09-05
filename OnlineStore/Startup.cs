@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using OnlineStore.Authorization;
-using OnlineStore.Models;
+using OnlineStore.Web.Authorization;
+using OnlineStore.Web.Models;
 
-namespace OnlineStore
+namespace OnlineStore.Web
 {
     public class Startup
     {
